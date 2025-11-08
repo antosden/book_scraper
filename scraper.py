@@ -15,6 +15,7 @@ book_url = 'https://books.toscrape.com/catalogue/%s'
 
 SCHEDULE_TIME = "0:10"
 
+
 def get_book_data(book_url: str) -> dict:
     """
     Посылает GET запрос по URL адресу страницы с книгой.
@@ -195,6 +196,9 @@ def scrape_books(is_save=False) -> list:
 
 
 def scraper():
+    # Расписание
+    SCHEDULE_TIME = '14:38'
+
     # Сброс предыдущих задач
     schedule.clear()
 
@@ -214,7 +218,7 @@ def scraper():
 
     # Вывод логгирования в консоль
     console = logging.StreamHandler()
-    console.setLevel(logging.DEBUG)
+    console.setLevel(logging.INFO)
     console.setFormatter(logging.Formatter('%(asctime)s [%(levelname)s] %(message)s'))
     logging.getLogger().addHandler(console)
 
@@ -223,13 +227,14 @@ def scraper():
     logging.info(f"Scheduler initialized. Job will run daily at {SCHEDULE_TIME}.")
 
     try:
-        logging.info(f"Next run scheduled for {job.next_run.strftime('%Y-%m-%d %H:%M:%S')}")
+        logging.info(f"Next run scheduled for {job.next_run.strftime('%Y-%m-%d %H:%M')}")
     except Exception:
         logging.debug("Job registered")
 
     while True:
         schedule.run_pending()
         time.sleep(60)
+    # КОНЕЦ ВАШЕГО РЕШЕНИЯ
 
 
 if __name__ == '__main__':
