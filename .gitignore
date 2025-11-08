@@ -1,0 +1,11 @@
+/scrape_books.log
+/notebooks/scrape_books.log
+/notebooks/books_data.txt
+/.coverage
+/.venv/
+.idea/
+# IntellijIdea files
+.idea
+*.iml
+.idea/workspace.xml
+/books_data.txt
