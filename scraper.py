@@ -197,7 +197,7 @@ def scrape_books(is_save=False) -> list:
 
 def scraper():
     # Расписание
-    SCHEDULE_TIME = '14:38'
+    SCHEDULE_TIME = '19:00'
 
     # Сброс предыдущих задач
     schedule.clear()
